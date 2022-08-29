@@ -2,10 +2,6 @@ import React from "react";
 import logo from "./assets/images/bicicleta.png"
 
 const NavBar = () => {
-    // let estilo = {
-    //     color: "white",
-    //     backgroundColor: "black"}
-    
     
         return (
             <div className="container">
