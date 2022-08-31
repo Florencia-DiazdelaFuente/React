@@ -1,6 +1,7 @@
 
 import './App.css';
 import Footer from './components/Footer';
+import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -10,9 +11,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <hr></hr>
-      <h2>Bikes Store</h2>
-      <hr></hr>
+      <ItemListContainer titulo={"The Bike Store"} mensaje={"Bienvenidos a The Bike Store"}/>
       <Footer />
     </div>
   );
