@@ -10,10 +10,10 @@ const NavBar = () => {
                     
                         <div className= "col d-flex justify-content-center"><img src={logo} width="60px" alt="logo bici" /></div>
                         <div className="col-8 d-flex justify-content-evenly align-items-center">
-                        <button type="button" class="btn btn-outline-dark">Home</button>
-                        <button type="button" class="btn btn-outline-dark">Tienda</button>
-                        <button type="button" class="btn btn-outline-dark">Nosotros</button>
-                        <button type="button" class="btn btn-outline-dark">Contacto</button>
+                        <button type="button" className="btn btn-outline-dark">Home</button>
+                        <button type="button" className="btn btn-outline-dark">Tienda</button>
+                        <button type="button" className="btn btn-outline-dark">Nosotros</button>
+                        <button type="button" className="btn btn-outline-dark">Contacto</button>
                         </div>
                         <div className="col d-flex justify-content-center align-items-center">
                         <CartWidget />

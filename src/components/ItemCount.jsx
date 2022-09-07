@@ -39,7 +39,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     <p className="text-center text-decoration-underline">NOMBRE DEL PRODUCTO</p>
                     <div className="input-group">
                         <input  type="button" className="btn btn-dark" value="-" onClick={()=>{disminuirCantidad(cantidad - 1)}}/>
-                        <input type="text" className="form-control" value={cantidad} />
+                        <input type="text" className="form-control" value={cantidad} onChange={()=>{}} />
                         <input type="button" className="btn btn-dark" value="+" onClick={()=>{aumentarCantidad(cantidad + 1)}} />
                     </div>
                     <div className="d-grid gap-2 py-3">

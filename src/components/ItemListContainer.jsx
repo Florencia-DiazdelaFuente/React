@@ -1,4 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import ItemList from "./ItemList";
+
 
 const ItemListContainer = (props) => {
     let estilosTitulo = { 
@@ -12,11 +16,40 @@ const ItemListContainer = (props) => {
         textDecoration: "underline"
     }
 
+    
+
+    const [items, setItems] = useState([]);
+
+    useEffect (() => {
+        const productos = [
+            {id: 1, nombre:"OLMO WISH 290 R29 DISC ENTRY", precio: 93000, img:"./assets/images/olmoWish.jpg"},
+            {id: 2, nombre:"VOLTA SVEL DEORE R29", precio: 30000, img:"./assets/images/voltaSvel.jpg"},
+            {id: 3, nombre:"VAIRO XR8.5 R29", precio: 50000, img:"./assets/images/vairoXR.jpg"},
+            {id: 4, nombre:"STARK AMSTERDAM R28 7V", precio: 70000, img:"./assets/images/starkAmsterdam.jpg"},
+            {id: 5, nombre:"TRINX N106 R26", precio: 107000, img:"./assets/images/trinx.png"},
+            {id: 6, nombre:"STARK THUNDER R29 21V", precio: 101000, img:"./assets/images/starkThunder.jpg"}
+        ];
+
+
+        const promesa = new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                resolve(productos);
+            }, 2000)
+        });
+
+        promesa.then((respuesta)=>{
+            setItems(respuesta);
+        })
+    }, [])
+
     return (
         <div>
             <h2 style={estilosTitulo}> {props.titulo} </h2>
             <p className= "propios"style={estilosMensaje}> {props.mensaje} </p>
-
+            <div className="container">
+                <ItemList items={items}/>
+            </div>
+            
         </div>
     )
 }
