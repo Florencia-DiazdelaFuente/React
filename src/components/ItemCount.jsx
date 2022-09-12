@@ -34,8 +34,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
 
         <div className="container">
-            <div className="row justify-content-end">
-                <div className="col-md-3 border border-dark mb-2">
+            <div className="row justify-content-center">
+                <div className="border border-dark mb-2">
                     <p className="text-center text-decoration-underline">NOMBRE DEL PRODUCTO</p>
                     <div className="input-group">
                         <input  type="button" className="btn btn-dark" value="-" onClick={()=>{disminuirCantidad(cantidad - 1)}}/>
@@ -46,7 +46,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         <input type="button" className="btn btn-dark " value="Agregar" onClick={()=>{agregarProductos()}} />
                     </div>
                     <p>Cantidad de productos seleccionados: {itemAdd}</p>
-
                 </div>
                 
             </div>

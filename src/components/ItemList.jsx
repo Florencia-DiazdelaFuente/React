@@ -4,10 +4,10 @@ import Item from "./Item";
 
 const ItemList = ({items}) => {
     return (
-        <div className="row">
+        <div className="row align-items-center justify-items-center">
             {items.map(item => (
-                <div key={item.id} className="col-md-4">
-                <Item  nombre={item.nombre} precio={item.precio} img={item.img} />
+                <div key={item.id} className="col-md-3">
+                <Item item={item} />
                 </div>)
             )}
         </div>

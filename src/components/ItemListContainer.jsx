@@ -21,24 +21,30 @@ const ItemListContainer = (props) => {
     const [items, setItems] = useState([]);
 
     useEffect (() => {
-        const productos = [
-            {id: 1, nombre:"OLMO WISH 290 R29 DISC ENTRY", precio: 93000, img:"./assets/images/olmoWish.jpg"},
-            {id: 2, nombre:"VOLTA SVEL DEORE R29", precio: 30000, img:"./assets/images/voltaSvel.jpg"},
-            {id: 3, nombre:"VAIRO XR8.5 R29", precio: 50000, img:"./assets/images/vairoXR.jpg"},
-            {id: 4, nombre:"STARK AMSTERDAM R28 7V", precio: 70000, img:"./assets/images/starkAmsterdam.jpg"},
-            {id: 5, nombre:"TRINX N106 R26", precio: 107000, img:"./assets/images/trinx.png"},
-            {id: 6, nombre:"STARK THUNDER R29 21V", precio: 101000, img:"./assets/images/starkThunder.jpg"}
-        ];
+        // const productos = [
+        //     {id: 1, nombre:"OLMO WISH 290 R29 DISC ENTRY", precio: 93000, img:{olmoWish}},
+        //     {id: 2, nombre:"VOLTA SVEL DEORE R29", precio: 30000, img:"./assets/images/voltaSvel.jpg"},
+        //     {id: 3, nombre:"VAIRO XR8.5 R29", precio: 50000, img:"./assets/images/vairoXR.jpg"},
+        //     {id: 4, nombre:"STARK AMSTERDAM R28 7V", precio: 70000, img:"./assets/images/starkAmsterdam.jpg"},
+        //     {id: 5, nombre:"TRINX N106 R26", precio: 107000, img:"./assets/images/trinx.png"},
+        //     {id: 6, nombre:"STARK THUNDER R29 21V", precio: 101000, img:"./assets/images/starkThunder.jpg"}
+        // ];
+
+        fetch("https://api.mercadolibre.com/sites/MLA/search?q=bicicleta%20raleigh%20&limit=12")
+
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+        setItems(data.results);
 
 
-        const promesa = new Promise((resolve, reject) => {
-            setTimeout(()=>{
-                resolve(productos);
-            }, 2000)
-        });
+        // const getProductos = new Promise((resolve, reject) => {
+        //     setTimeout(()=>{
+        //         resolve(productos);
+        //     }, 2000)
+        // });
 
-        promesa.then((respuesta)=>{
-            setItems(respuesta);
+        // getProductos.then((respuesta)=>{
+        //     setItems(respuesta);
         })
     }, [])
 
