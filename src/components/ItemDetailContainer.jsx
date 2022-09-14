@@ -1,11 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
 
-    const [prod, setProd] = useState([]);
+    const [item, setItem] = useState([]);
+    const {id} = useParams();
     
     useEffect (() => {
 
@@ -13,7 +15,11 @@ const ItemDetailContainer = () => {
 
         .then((respuesta) => respuesta.json())
         .then((data) => {
-        setProd(data.results[0]);
+            const product = data.results.find((element) => element.id === id);
+        
+        console.log(data.results[0].id);
+        
+        setItem(product);
 
         // const getProd = new Promise((resolve, reject)=> {
             
@@ -27,12 +33,12 @@ const ItemDetailContainer = () => {
         //     setProd(respuesta);
         // })
     })
-    }, [])
+    }, [id])
 
     return (
         <div>
             <div className="container">
-                <ItemDetail prod={prod}/>
+                <ItemDetail item={item}/>
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Item = ({item}) => {
@@ -9,9 +10,9 @@ const Item = ({item}) => {
                 <div className="card-body d-flex flex-column justify-content-center">
                     <h5 className="card-title text-center">{item.title}</h5>
                     <p className="card-text text-center">${item.price}</p>
-                    <a href={item.permalink} className="btn btn-dark align-self-center" target="_blank" rel="noreferrer">
+                    <Link to={"/item/" + item.id} className="btn btn-dark align-self-center" target="_blank" rel="noreferrer">
                     Comprar
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
