@@ -1,34 +1,35 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
-    const [cantidad, setCantidad] = useState(initial);
+    const [counter, setCounter] = useState(initial);
     const [itemStock, setItemStock] = useState(stock);
-    const [itemAdd, setItemAdd] = useState(onAdd);
+
 
     const disminuirCantidad = (valor) => {
-        if (valor > -1) {
-        setCantidad(valor);
+        if (valor > 0) {
+        setCounter(valor);
         } 
     }
 
     const aumentarCantidad = (valor) => {
 
         if (valor <= itemStock) {
-            setCantidad(valor);
+            setCounter(valor);
             } 
     }
 
     const agregarProductos = () => {
-        if (cantidad <= itemStock) {
-            setItemStock(itemStock - cantidad);
-            setItemAdd(itemAdd + cantidad)
-
+        if (counter <= itemStock) {
+            onAdd(counter);
+            setItemStock(itemStock - counter);
+            setCounter(itemStock + counter)
         }
-        
-
     }
+
+    useEffect (()=>{
+        setItemStock(stock);
+    }, [stock])
 
 
     return (
@@ -38,14 +39,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <div className="border border-dark mb-2">
                     <p className="text-center text-decoration-underline">NOMBRE DEL PRODUCTO</p>
                     <div className="input-group">
-                        <input  type="button" className="btn btn-dark" value="-" onClick={()=>{disminuirCantidad(cantidad - 1)}}/>
-                        <input type="text" className="form-control" value={cantidad} onChange={()=>{}} />
-                        <input type="button" className="btn btn-dark" value="+" onClick={()=>{aumentarCantidad(cantidad + 1)}} />
+                        <input  type="button" className="btn btn-dark" value="-" onClick={()=>{disminuirCantidad(counter - 1)}}/>
+                        <input type="text" className="form-control" value={counter} onChange={()=>{}} />
+                        <input type="button" className="btn btn-dark" value="+" onClick={()=>{aumentarCantidad(counter + 1)}} />
                     </div>
                     <div className="d-grid gap-2 py-3">
                         <input type="button" className="btn btn-dark " value="Agregar" onClick={()=>{agregarProductos()}} />
                     </div>
-                    <p>Cantidad de productos seleccionados: {itemAdd}</p>
+                    <p>Cantidad de productos seleccionados: {counter}</p>
                 </div>
                 
             </div>
