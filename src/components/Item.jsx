@@ -11,7 +11,7 @@ const Item = ({item}) => {
                     <h5 className="card-title text-center">{item.title}</h5>
                     <p className="card-text text-center">${item.price}</p>
                     <Link to={"/item/" + item.id} className="btn btn-dark align-self-center">
-                    Comprar
+                    Ver detalle
                     </Link>
                 </div>
             </div>

@@ -36,15 +36,6 @@ const ItemListContainer = (props) => {
         .then((data) => {
         setItems(data.results);
 
-
-        // const getProductos = new Promise((resolve, reject) => {
-        //     setTimeout(()=>{
-        //         resolve(productos);
-        //     }, 2000)
-        // });
-
-        // getProductos.then((respuesta)=>{
-        //     setItems(respuesta);
         })
     }, [])
 

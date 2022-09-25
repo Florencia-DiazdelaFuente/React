@@ -16,7 +16,7 @@ const CartWidget = () => {
                     <span >{cartTotal()}</span>
                 </button> 
             </Link>
-            <button type="button" className="btn "  onClick={()=>{clear()}}>
+            <button type="button" className="btn "  onClick={clear}>
                 <img src={tacho} className="border border-0" width= "20" alt= "icono tacho"/>
             </button>
         </div>

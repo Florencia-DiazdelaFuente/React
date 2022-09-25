@@ -10,7 +10,6 @@ import Provider from './components/context/Context';
 
 function App() {
 
-
   return (
     <div>
 

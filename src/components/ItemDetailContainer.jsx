@@ -17,21 +17,8 @@ const ItemDetailContainer = () => {
         .then((data) => {
             const product = data.results.find((element) => element.id === id);
         
-        console.log(data.results[0].id);
-        
         setItem(product);
 
-        // const getProd = new Promise((resolve, reject)=> {
-            
-        //     const product = prod.find((prod)=>prod.id===1)
-        //     setTimeout(()=>{
-        //         resolve(product);
-        //     }, 2000)
-        // })
-
-        // getProd.then((respuesta)=>{
-        //     setProd(respuesta);
-        // })
     })
     }, [id])
 

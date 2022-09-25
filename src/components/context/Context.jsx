@@ -29,10 +29,27 @@ const Provider = (props)=> {
         return cart.reduce((total, item) => total += item.cantidad, 0)
     }
 
+
+    const deleteOne = (id) => {
+            const productosFiltrados = cart.filter ((el)=>el.id !== id);
+            setCart(productosFiltrados);
+        
+    }
+
+    const precioTotal = () =>{
+        const copia = [...cart];
+        let precio = 0;
+        copia.forEach((producto)=>{
+            precio = precio + producto.price
+        });
+        return precio;
+
+    }
+
     
 
     return (
-        <CartContext.Provider value={{cart, addItem, clear, cartTotal}}>
+        <CartContext.Provider value={{cart, addItem, clear, cartTotal, deleteOne, precioTotal}}>
             {props.children}
 
         </CartContext.Provider>
