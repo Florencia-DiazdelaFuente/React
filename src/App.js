@@ -1,6 +1,7 @@
 
 import './App.css';
 import Footer from './components/Footer';
+import Home from "./components/Home";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Cart from './components/Cart';
@@ -13,16 +14,13 @@ function App() {
   return (
     <div>
 
-      
-      
-      {/* <ItemListContainer titulo={"The Bike Store"} mensaje={"Bienvenidos a The Bike Store"}/>
-      <ItemDetailContainer /> */}
+    
       
       <Provider>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<ItemListContainer/>}/>
+          <Route exact path="/" element={<Home/>}/>
           <Route exact path="/category/:id" element={<ItemListContainer/>}/>
           <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
           <Route exact path='/cart' element={<Cart/>} />

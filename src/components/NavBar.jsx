@@ -18,7 +18,7 @@ const NavBar = () => {
                         <div className="col-8 d-flex justify-content-evenly align-items-center" >
                             
                                 <Link  to={"/"} className="btn btn-outline-dark">Home</Link>
-                                <Link to={"/"} className="btn btn-outline-dark">Tienda</Link>
+                                <Link to={"/category/:id"} className="btn btn-outline-dark">Tienda</Link>
                                 <Link to={"/"} className="btn btn-outline-dark">Nosotros</Link>
                                 <Link to={"/"} className="btn btn-outline-dark">Contacto</Link>
                             

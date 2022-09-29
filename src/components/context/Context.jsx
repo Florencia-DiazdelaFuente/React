@@ -40,7 +40,7 @@ const Provider = (props)=> {
         const copia = [...cart];
         let precio = 0;
         copia.forEach((producto)=>{
-            precio = precio + producto.price
+            precio = precio + producto.precio
         });
         return precio;
 

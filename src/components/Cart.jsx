@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { CartContext } from "./context/Context";
 
 
@@ -18,11 +17,11 @@ const Cart = () => {
                     <div className="col-md-8">
                     {cart.map((prod)=>(
                         <div key={prod.id} className="d-flex flex-row border border-dark mb-3 mx-3" >
-                            <img className="p-3" src={prod.thumbnail} alt={prod.title}/>
+                            <img className="p-3" src={prod.imagen} alt={prod.nombre}/>
                             <div className="p-2">
-                                <h6>{prod.title}</h6>
+                                <h6>{prod.nombre}</h6>
                                 <p>Cantidad: {prod.cantidad}</p>
-                                <p>Precio: ${prod.price}</p>
+                                <p>Precio: ${prod.precio}</p>
                                 <button className="btn btn-outline-dark" onClick={()=>deleteOne(prod.id)}>
                                     Eliminar
                                 </button>
@@ -39,10 +38,6 @@ const Cart = () => {
                             </button>
                         </div>
                 </div>
-                
-                
-            
-
             </div>
         </div>
     )
