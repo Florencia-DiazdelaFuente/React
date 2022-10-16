@@ -6,3 +6,43 @@
   width: 300px;
 }
 
+.altura {
+  height: 400px;
+}
+
+.fondoHeader {
+  background-color: rgb(33, 150, 33);
+}
+
+.cartWidgetButton {
+  border: none;
+  background-color: white;
+  transition: 0s;
+  padding: 8px;
+}
+
+.cartWidgetButton:hover {
+  border: 1px solid black;
+  border-radius: 8px;
+  
+}
+
+.cardHeight {
+  height: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.footer{
+  height: 90px;
+}
+
+.cartVacio {
+  height: 400px;
+}
+
+.itemDetail {
+  height: 450px;
+}
+
+

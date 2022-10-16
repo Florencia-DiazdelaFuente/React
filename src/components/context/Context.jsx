@@ -33,29 +33,23 @@ const Provider = (props)=> {
     const deleteOne = (id) => {
             const productosFiltrados = cart.filter ((el)=>el.id !== id);
             setCart(productosFiltrados);
-        
     }
 
     const precioTotal = () =>{
         const copia = [...cart];
         let precio = 0;
         copia.forEach((producto)=>{
-            precio = precio + producto.precio
+            precio = precio + (producto.precio * producto.cantidad)
         });
         return precio;
-
     }
 
-    
 
     return (
         <CartContext.Provider value={{cart, addItem, clear, cartTotal, deleteOne, precioTotal}}>
             {props.children}
-
         </CartContext.Provider>
-
     )
-
 }
 
 export default Provider;

@@ -2,45 +2,38 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import ItemList from "./ItemList";
-import {getFirestore, collection, getDocs} from "firebase/firestore";
-// import { useParams } from "react-router-dom";
+import {getFirestore, collection, getDocs, query, where} from "firebase/firestore";
+import { useParams } from "react-router-dom"; 
 
 
 const ItemListContainer = (props) => {
-    // let estilosTitulo = { 
-    //     color: "white",
-    //     backgroundColor: "black",
-    //     textAlign: "center",
-    //     padding: "30px 0"
-    // }
-    // let estilosMensaje ={
-    //     textAlign: "center",
-    //     textDecoration: "underline"
-    // }
-
-    
-    // const {id} = useParams()
     const [items, setItems] = useState([]);
+    const {categoryName} = useParams(); 
 
     useEffect (() => {
         const db = getFirestore();
         const itemsCollection = collection(db, "Items");
-        // const queryItems = id ? query(itemsCollection, where("categoria", "==", id)) : itemsCollection;
-        getDocs(itemsCollection).then((snapshot)=>{
-
-            setItems(snapshot.docs.map((item)=> ({id: item.id, ...item.data()})))
+        const queryItems = categoryName ? query(itemsCollection, where("categoria", "==", categoryName)) : itemsCollection;
+        getDocs(queryItems).then((response)=>{
+            const products = response.docs.map((prod)=>{
+                return {
+                    id: prod.id,
+                    ...prod.data(),
+                };
+            });
+            setItems(products)
         })
-    }, []);
+
+    }, [categoryName]);
 
     
 
     return (
         <div>
-            <h2> THE BIKE STORE </h2>
-            <div className="container">
+            <h4 className="text-center my-4"> THE BIKE STORE </h4>
+            <div className="container text-center">
                 <ItemList items={items}/>
             </div>
-            
         </div>
     )
 }

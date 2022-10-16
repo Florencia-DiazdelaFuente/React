@@ -10,15 +10,28 @@ const CartWidget = () => {
 
     return (
         <div>
-            <Link to={"/cart"}>
-                <button type="button" className="btn btn-light border border-dark">
-                    <img src={carrito} width="40" alt="imagen carrito" />
-                    <span >{cartTotal()}</span>
-                </button> 
-            </Link>
-            <button type="button" className="btn "  onClick={clear}>
-                <img src={tacho} className="border border-0" width= "20" alt= "icono tacho"/>
-            </button>
+            {cartTotal() > 0 ? (
+                <div>
+                    <Link to={"/cart"}>
+                    <button type="button" className="cartWidgetButton">
+                        <img src={carrito} width="40" alt="imagen carrito" />
+                        <span >{cartTotal()}</span>
+                    </button> 
+                    </Link>
+                    <button type="button" className="btn "  onClick={clear}>
+                        <img src={tacho} className="border border-0" width= "20" alt= "icono tacho"/>
+                    </button>
+                </div>
+            ) : (
+                <div>
+                    <Link to={"/cart"}>
+                    <button type="button" className="cartWidgetButton">
+                        <img src={carrito} width="40" alt="imagen carrito" />
+                    </button> 
+                    </Link>
+                </div>
+            )
+            }
         </div>
     )
 }

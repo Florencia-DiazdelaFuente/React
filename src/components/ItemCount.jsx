@@ -48,11 +48,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     </div>
                     <p>Cantidad de productos seleccionados: {counter}</p>
                 </div>
-                
             </div>
-            
         </div>
-        
     )
 }
 
